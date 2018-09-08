@@ -8,8 +8,32 @@ with open('reviews.txt', 'r') as f:
 			print(len(data))
 print('檔案讀取完了，總共有{}筆資料'.format(len(data)))
 
+sum_len = 0
+for d in data:
+	sum_len = sum_len + len(d)
+
+print('留言的平均長度為{}'.format(sum_len/len(data)))
+
+
+#------留言篩選-------
+new=[]
+for d in data:
+	if len(d) < 100:
+		new.append(d)
+print('一共有{}筆留言長度小於100'.format(len(new)))
+print(new[0])
+
+
+good = [d for d in data if 'good' in d]
+
+# for d in data:
+# 	if 'good' in d:
+# 		good.append(d)
+print('一共有{}筆留言提到good'.format(len(good)))
 # print(data[0])
 
+
+#文字計數
 
 wc = {} #word_count
 for d in data:
@@ -41,25 +65,3 @@ print('感謝您使用本查詢功能')
 
 
 
-# sum_len = 0
-# for d in data:
-# 	sum_len = sum_len + len(d)
-
-# print('留言的平均長度為{}'.format(sum_len/len(data)))
-
-
-# #------留言篩選-------
-# new=[]
-# for d in data:
-# 	if len(d) < 100:
-# 		new.append(d)
-# print('一共有{}筆留言長度小於100'.format(len(new)))
-# print(new[0])
-
-
-# good = [d for d in data if 'good' in d]
-
-# # for d in data:
-# # 	if 'good' in d:
-# # 		good.append(d)
-# print('一共有{}筆留言提到good'.format(len(good)))
